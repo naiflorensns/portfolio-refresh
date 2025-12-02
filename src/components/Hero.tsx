@@ -1,56 +1,45 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import MazeBackground from "./MazeBackground";
+import PacmanCharacter from "./PacmanCharacter";
+import PacmanDots from "./PacmanDots";
+import Ghost from "./Ghost";
 import profilePhoto from "@/assets/profile-photo.png";
+
 const Hero = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({
-      behavior: "smooth"
-    });
-  };
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iLjEiLz48L2c+PC9zdmc+')] opacity-20"></div>
-      
+  const navigate = useNavigate();
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      <MazeBackground opacity={0.08} />
+      <div className="absolute top-20 left-10 animate-float"><Ghost size={50} color="red" /></div>
+      <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: "0.5s" }}><Ghost size={40} color="pink" /></div>
+      <div className="absolute bottom-40 left-20 animate-float" style={{ animationDelay: "1s" }}><Ghost size={45} color="cyan" /></div>
+      <div className="absolute bottom-32 right-10 animate-float" style={{ animationDelay: "1.5s" }}><Ghost size={35} color="orange" /></div>
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center animate-fade-in">
-          <div className="mb-6 inline-block">
-            <div className="w-32 h-32 mx-auto rounded-full bg-white/10 backdrop-blur-sm border-4 border-white/20 overflow-hidden animate-float">
-              <img 
-                src={profilePhoto} 
-                alt="Najwa Alayya Fatharani" 
-                className="w-full h-full object-cover"
-              />
+          <div className="mb-8 inline-block">
+            <div className="relative">
+              <div className="w-40 h-40 mx-auto pixel-border bg-muted overflow-hidden animate-float">
+                <img src={profilePhoto} alt="Najwa Alayya Fatharani" className="w-full h-full object-cover" />
+              </div>
+              <PacmanCharacter size={30} className="absolute -right-4 top-1/2 -translate-y-1/2" direction="left" />
             </div>
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
-            NAJWA ALAYYA
-            <br />
-            FATHARANI
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-white/90 mb-4 font-light tracking-wide">
-            Graphic Designer & Videographer
-          </p>
-          
-          <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Creating visual stories that inspire, engage, and leave lasting impressions
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-card" onClick={() => scrollToSection("portfolio")}>
-              View My Work
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary" onClick={() => scrollToSection("contact")}>
-              Get In Touch
-            </Button>
+          <h1 className="font-pixel text-xl sm:text-2xl md:text-3xl text-primary mb-4 neon-text leading-relaxed">NAJWA ALAYYA<br />FATHARANI</h1>
+          <p className="font-pixel text-[10px] sm:text-xs text-secondary mb-4 neon-text-blue tracking-wider">— CREATIVE PORTFOLIO —</p>
+          <p className="text-lg text-muted-foreground mb-8 max-w-md mx-auto">Graphic Designer • Videographer • Creative Thinker</p>
+          <div className="flex justify-center gap-8 mb-10">
+            <div className="text-center"><p className="font-pixel text-[8px] text-secondary mb-1">HIGH SCORE</p><p className="font-pixel text-sm text-primary neon-text">999999</p></div>
+            <div className="text-center"><p className="font-pixel text-[8px] text-secondary mb-1">LEVEL</p><p className="font-pixel text-sm text-primary neon-text">MAX</p></div>
           </div>
+          <Button onClick={() => navigate("/projects")} className="arcade-btn px-8 py-4 text-sm">ENTER PORTFOLIO</Button>
+          <p className="font-pixel text-[8px] text-muted-foreground mt-8 animate-neon-flicker">PRESS START TO BEGIN</p>
         </div>
       </div>
-      
-      <button onClick={() => scrollToSection("about")} className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-colors animate-bounce" aria-label="Scroll down">
-        <ArrowDown className="w-8 h-8" />
-      </button>
-    </section>;
+      <div className="absolute bottom-8 left-0 right-0"><PacmanDots dotCount={20} /></div>
+    </section>
+  );
 };
 export default Hero;
