@@ -5,73 +5,10 @@ import { Badge } from "@/components/ui/badge";
 import MazeBackground from "./MazeBackground";
 import PacmanCharacter from "./PacmanCharacter";
 import PacmanDots from "./PacmanDots";
-import { Camera, Palette, Briefcase, Play } from "lucide-react";
+import { projectsList } from "@/data/projects";
 
 const Portfolio = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const projects = [
-    {
-      id: "public-figure-content",
-      title: "Public Figure Content",
-      client: "Revalina S. Temat",
-      category: "Videography",
-      description: "Professional videography for SEVISI Virtual Assistant, creating engaging content for public figures.",
-      icon: Camera,
-      tags: ["Videography", "Content Creation"],
-      score: 10000
-    },
-    {
-      id: "product-photography",
-      title: "Product Photography",
-      client: "Mid Semester Project",
-      category: "Photography",
-      description: "High-quality product photography for OMNIA, ASAFF, and ANNIV brands.",
-      icon: Camera,
-      tags: ["Photography", "Product"],
-      score: 8500
-    },
-    {
-      id: "bandung-illustration",
-      title: "Bandung Illustration",
-      client: "Campus Project",
-      category: "Design",
-      description: "City composition illustrating Bandung's atmosphere during the pandemic.",
-      icon: Palette,
-      tags: ["Illustration", "Design"],
-      score: 9200
-    },
-    {
-      id: "brand-assets",
-      title: "Brand Assets",
-      client: "Various Clients",
-      category: "Branding",
-      description: "Creating comprehensive brand assets including logos, color palettes, and design systems.",
-      icon: Briefcase,
-      tags: ["Branding", "Design"],
-      score: 11000
-    },
-    {
-      id: "video-showcase",
-      title: "Video Showcase",
-      client: "Personal Projects",
-      category: "Video",
-      description: "Collection of video works showcasing creative storytelling and editing skills.",
-      icon: Play,
-      tags: ["Video", "Editing"],
-      score: 7800
-    },
-    {
-      id: "social-media",
-      title: "Social Media Campaign",
-      client: "SEVISI",
-      category: "Design",
-      description: "Comprehensive social media design and content strategy for brand awareness.",
-      icon: Palette,
-      tags: ["Social Media", "Campaign"],
-      score: 9500
-    }
-  ];
 
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
@@ -103,7 +40,7 @@ const Portfolio = () => {
 
         {/* Projects Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {projects.map((project, index) => {
+          {projectsList.map((project, index) => {
             const Icon = project.icon;
             const isHovered = hoveredIndex === index;
             
@@ -130,8 +67,11 @@ const Portfolio = () => {
 
                   {/* Project Preview */}
                   <div className="h-40 bg-muted flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 maze-pattern opacity-20" />
-                    <Icon className="w-16 h-16 text-secondary/30 group-hover:text-primary/50 transition-colors" />
+                    <img 
+                      src={project.thumbnail} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
                     
                     {/* Category Badge */}
                     <Badge 
@@ -142,7 +82,7 @@ const Portfolio = () => {
 
                     {/* Score */}
                     <div className="absolute bottom-3 right-3">
-                      <span className="font-pixel text-[10px] text-primary neon-text">
+                      <span className="font-pixel text-[10px] text-primary neon-text bg-background/80 px-2 py-1">
                         {project.score.toLocaleString()} PTS
                       </span>
                     </div>
