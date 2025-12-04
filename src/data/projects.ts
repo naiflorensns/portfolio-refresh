@@ -1,41 +1,38 @@
-import { Camera, Palette, Briefcase, Play, Monitor, Layout } from "lucide-react";
+import { Camera, Palette, Briefcase, Play, Monitor, Layout, Building2 } from "lucide-react";
 
-// Project Images
 import publicFigure1 from "@/assets/projects/public-figure-1.jpg";
 import publicFigure2 from "@/assets/projects/public-figure-2.jpg";
 import publicFigure3 from "@/assets/projects/public-figure-3.jpg";
-
 import productPhoto1 from "@/assets/projects/product-photo-1.jpg";
 import productPhoto2 from "@/assets/projects/product-photo-2.jpg";
-
 import bandung1 from "@/assets/projects/bandung-1.png";
 import bandung2 from "@/assets/projects/bandung-2.png";
 import bandung3 from "@/assets/projects/bandung-3.png";
 import bandung4 from "@/assets/projects/bandung-4.png";
-
 import tellTails1 from "@/assets/projects/tell-tails-1.png";
 import tellTails2 from "@/assets/projects/tell-tails-2.png";
 import tellTails3 from "@/assets/projects/tell-tails-3.png";
 import tellTails4 from "@/assets/projects/tell-tails-4.png";
-
 import logoStar1 from "@/assets/projects/logo-star-1.png";
 import logoStar2 from "@/assets/projects/logo-star-2.png";
 import logoStar3 from "@/assets/projects/logo-star-3.png";
 import logoStar4 from "@/assets/projects/logo-star-4.png";
-
 import bakmiHaiyu1 from "@/assets/projects/bakmi-haiyu-1.jpg";
 import bakmiHaiyu2 from "@/assets/projects/bakmi-haiyu-2.png";
 import bakmiHaiyu3 from "@/assets/projects/bakmi-haiyu-3.png";
-
 import ptTba1 from "@/assets/projects/pt-tba-1.png";
 import ptTba2 from "@/assets/projects/pt-tba-2.png";
 import ptTba3 from "@/assets/projects/pt-tba-3.png";
 import ptTba4 from "@/assets/projects/pt-tba-4.png";
-
 import ashoeUi1 from "@/assets/projects/ashoe-ui-1.png";
 import ashoeUi2 from "@/assets/projects/ashoe-ui-2.png";
-
 import gestalt1 from "@/assets/projects/gestalt-1.png";
+import transHotelLogo from "@/assets/projects/trans-hotel-logo.png";
+import transHotel1 from "@/assets/projects/trans-hotel-1.jpg";
+import transHotel2 from "@/assets/projects/trans-hotel-2.jpg";
+import transHotel3 from "@/assets/projects/trans-hotel-3.jpg";
+import transHotel4 from "@/assets/projects/trans-hotel-4.png";
+import transHotel5 from "@/assets/projects/trans-hotel-5.png";
 
 export interface Project {
   id: string;
@@ -52,206 +49,101 @@ export interface Project {
   tags: string[];
   thumbnail: string;
   images: string[];
+  videos?: { platform: "instagram" | "tiktok" | "youtube"; url: string; title: string; }[];
 }
 
 export const projectsData: Record<string, Project> = {
+  "trans-luxury-hotel": {
+    id: "trans-luxury-hotel", title: "Marketing Communication Internship", client: "The Trans Luxury Hotel", category: "Internship",
+    description: "3-month internship as Graphic Designer & Videographer",
+    overview: "Saya melakukan internship selama 3 bulan sebagai Marketing Communication Intern di The Trans Luxury Hotel, Bandung. Dalam posisi ini saya bekerja sebagai Graphic Designer dan Videographer untuk kebutuhan konten sosial media hotel, termasuk pembuatan konten Instagram Feed, Reels, dan TikTok. Saya membuat desain visual, mengedit video, mendokumentasikan kegiatan hotel, serta bekerja sama dengan tim marketing untuk pelaksanaan kampanye digital.",
+    objective: "To contribute to the hotel's digital marketing efforts through high-quality visual content and video production.",
+    process: ["Social media content planning", "Graphic design for Instagram Feed", "Video production for Reels and TikTok", "Event documentation and photography", "Video editing and post-production", "Collaboration with marketing team"],
+    result: "Successfully created engaging visual content that enhanced the hotel's social media presence during the internship period (July-September 2025).",
+    icon: Building2, score: 12000, tags: ["Internship", "Graphic Design", "Videography", "Social Media"],
+    thumbnail: transHotelLogo, images: [transHotelLogo, transHotel1, transHotel2, transHotel3, transHotel4, transHotel5],
+    videos: [{ platform: "instagram", url: "https://www.instagram.com/thetransluxuryhotel", title: "Instagram Reels (Juli-September 2025)" }, { platform: "tiktok", url: "https://www.tiktok.com/@thetransluxuryhotel", title: "TikTok Content (Juli-September 2025)" }]
+  },
   "public-figure-content": {
-    id: "public-figure-content",
-    title: "Public Figure Content",
-    client: "Revalina S. Temat",
-    category: "Videography",
+    id: "public-figure-content", title: "Public Figure Content", client: "Revalina S. Temat", category: "Videography",
     description: "Professional videography for SEVISI Virtual Assistant",
     overview: "Created engaging video content for public figure Revalina S. Temat, focusing on SEVISI Virtual Assistant promotional materials and social media content.",
-    objective: "To produce high-quality video content that effectively communicates the value proposition of SEVISI while maintaining the personal brand of the public figure.",
-    process: [
-      "Pre-production planning and storyboarding",
-      "Professional video shooting with proper lighting",
-      "Post-production editing with color grading",
-      "Sound design and music integration",
-      "Final delivery in multiple formats"
-    ],
-    result: "Successfully delivered a series of engaging videos that increased brand awareness and engagement across social media platforms.",
-    icon: Camera,
-    score: 10000,
-    tags: ["Videography", "Content Creation"],
-    thumbnail: publicFigure1,
-    images: [publicFigure1, publicFigure2, publicFigure3]
+    objective: "To produce high-quality video content that effectively communicates the value proposition of SEVISI.",
+    process: ["Pre-production planning", "Professional video shooting", "Post-production editing", "Sound design", "Final delivery"],
+    result: "Successfully delivered engaging videos that increased brand awareness.", icon: Camera, score: 10000, tags: ["Videography", "Content Creation"],
+    thumbnail: publicFigure1, images: [publicFigure1, publicFigure2, publicFigure3]
   },
   "product-photography": {
-    id: "product-photography",
-    title: "Foto Product",
-    client: "Mid Semester Project",
-    category: "Photography",
+    id: "product-photography", title: "Foto Product", client: "Mid Semester Project", category: "Photography",
     description: "High-quality product photography for OMNIA, ASAFF, and ANNIV brands",
     overview: "A comprehensive product photography project showcasing items from OMNIA, ASAFF, and ANNIV brands with professional lighting and styling.",
-    objective: "To capture products in their best light, highlighting features and creating aspirational imagery for marketing purposes.",
-    process: [
-      "Product analysis and concept development",
-      "Set design and prop styling",
-      "Professional photography with various angles",
-      "Image editing and retouching",
-      "Final export for various platforms"
-    ],
-    result: "Delivered a cohesive collection of product images that elevated brand perception and improved marketing materials.",
-    icon: Camera,
-    score: 8500,
-    tags: ["Photography", "Product"],
-    thumbnail: productPhoto1,
-    images: [productPhoto1, productPhoto2]
+    objective: "To capture products in their best light for marketing purposes.",
+    process: ["Product analysis", "Set design", "Professional photography", "Image editing", "Final export"],
+    result: "Delivered a cohesive collection of product images.", icon: Camera, score: 8500, tags: ["Photography", "Product"],
+    thumbnail: productPhoto1, images: [productPhoto1, productPhoto2]
   },
   "bandung-illustration": {
-    id: "bandung-illustration",
-    title: "Bandung Illustration",
-    client: "Campus Project",
-    category: "Design",
+    id: "bandung-illustration", title: "Bandung Illustration", client: "Campus Project", category: "Design",
     description: "City composition illustrating Bandung's atmosphere during the pandemic",
     overview: "Gambar komposisi kota ini menampilkan suasana kota Bandung di masa kini. Menampilkan Museum Geologi, Stasiun Bosscha, Gedung Merdeka, dan ruko-ruko dengan suasana pandemi.",
-    objective: "To create a meaningful visual representation of Bandung that resonates with locals and captures the city's spirit during challenging times.",
-    process: [
-      "Research on Bandung's iconic landmarks",
-      "Sketch development and composition",
-      "Digital illustration creation",
-      "Color palette selection for mood",
-      "Final refinement and details"
-    ],
-    result: "A beautiful illustration that captures the essence of Bandung and received recognition for its artistic merit.",
-    icon: Palette,
-    score: 9200,
-    tags: ["Illustration", "Design"],
-    thumbnail: bandung1,
-    images: [bandung1, bandung2, bandung3, bandung4]
+    objective: "To create a meaningful visual representation of Bandung.",
+    process: ["Research on landmarks", "Sketch development", "Digital illustration", "Color palette selection", "Final refinement"],
+    result: "A beautiful illustration that captures the essence of Bandung.", icon: Palette, score: 9200, tags: ["Illustration", "Design"],
+    thumbnail: bandung1, images: [bandung1, bandung2, bandung3, bandung4]
   },
   "tell-tails": {
-    id: "tell-tails",
-    title: "Tell & Tails",
-    client: "Grand Project",
-    category: "Branding",
-    description: "Complete branding and packaging for Tell & Tails Dog Park & Cafe",
-    overview: "Development of complete brand identity system for Tell & Tails Dog Park & Cafe including packaging, signage, and brand assets.",
-    objective: "To create a distinctive and memorable brand identity that effectively communicates the fun and welcoming atmosphere of the dog park and cafe.",
-    process: [
-      "Brand discovery and research",
-      "Logo and visual identity design",
-      "Packaging design (cups, boxes, bags)",
-      "Signage and wayfinding design",
-      "Brand guidelines creation"
-    ],
-    result: "Successfully delivered a cohesive brand system that establishes Tell & Tails as a premium dog park and cafe destination.",
-    icon: Briefcase,
-    score: 11000,
-    tags: ["Branding", "Packaging"],
-    thumbnail: tellTails1,
-    images: [tellTails1, tellTails2, tellTails3, tellTails4]
+    id: "tell-tails", title: "Tail n Tails", client: "Pro Train Petcamp", category: "Branding",
+    description: "Complete branding and packaging for Tail n Tails Dog Park & Cafe",
+    overview: "Tail n Tails adalah project desain untuk grand opening Dog Park & Café milik seorang dog trainer profesional bernama Pro Train Petcamp. Saya membuat berbagai kebutuhan desain meliputi: desain kaos, desain packaging, signage untuk café dan untuk area dog training, serta beberapa visual promosi. Selain itu, saya juga mengelola Instagram Tail n Tails selama acara berlangsung, termasuk membuat konten video, melakukan editing, serta menjadi videographer pada hari grand opening.",
+    objective: "To create a distinctive and memorable brand identity.",
+    process: ["Brand discovery", "Logo design", "Packaging design", "T-shirt design", "Signage design", "Instagram management", "Videography"],
+    result: "Successfully delivered a cohesive brand system.", icon: Briefcase, score: 11000, tags: ["Branding", "Packaging", "Videography"],
+    thumbnail: tellTails1, images: [tellTails1, tellTails2, tellTails3, tellTails4]
   },
   "logo-star": {
-    id: "logo-star",
-    title: "Logo Band STAR",
-    client: "SMA Labs School Jakarta",
-    category: "Branding",
+    id: "logo-star", title: "Logo Band STAR", client: "SMA Labs School Jakarta", category: "Branding",
     description: "Logo design for PENSI SMA band",
-    overview: "Logo design project for STAR band at SMA Labs School Jakarta for their PENSI (Pentas Seni) event.",
-    objective: "To create a distinctive logo that represents the band's identity and can be used across various promotional materials.",
-    process: [
-      "Band concept discussion",
-      "Sketch and concept development",
-      "Digital logo creation",
-      "Color variations",
-      "Final delivery with usage guidelines"
-    ],
-    result: "A striking logo that captures the essence of the band and was used across all PENSI promotional materials.",
-    icon: Palette,
-    score: 7500,
-    tags: ["Logo Design", "Branding"],
-    thumbnail: logoStar1,
-    images: [logoStar1, logoStar2, logoStar3, logoStar4]
+    overview: "Logo Band Star adalah project desain logo untuk band sekolah yang tampil di acara pentas seni (pensi) Labschool Jakarta. Logo ini dibuat untuk band dengan genre punk rock, sehingga visualnya dibuat lebih abstrak, liar, dan enerjik dengan sentuhan gaya metal ala Metallica. Logo ditampilkan untuk kebutuhan promosi acara dan identitas visual band selama pensi berlangsung.",
+    objective: "To create a distinctive logo representing the band's punk rock identity.",
+    process: ["Band concept discussion", "Sketch development", "Digital logo creation", "Color variations", "Final delivery"],
+    result: "A striking logo used across all PENSI promotional materials.", icon: Palette, score: 7500, tags: ["Logo Design", "Branding"],
+    thumbnail: logoStar1, images: [logoStar1, logoStar2, logoStar3, logoStar4]
   },
   "bakmi-haiyu": {
-    id: "bakmi-haiyu",
-    title: "Bakmi Haiyu",
-    client: "Logo Project",
-    category: "Branding",
-    description: "Logo design for Bakmi Haiyu restaurant",
-    overview: "Creating a memorable logo for Bakmi Haiyu, a noodle restaurant, that reflects the authentic and delicious character of their dishes.",
-    objective: "To design a logo that is appetizing, memorable, and represents the quality of Bakmi Haiyu's offerings.",
-    process: [
-      "Restaurant concept understanding",
-      "Typography exploration",
-      "Icon and symbol development",
-      "Color palette selection",
-      "Final logo refinement"
-    ],
-    result: "A distinctive logo that helps Bakmi Haiyu stand out in the competitive food industry.",
-    icon: Briefcase,
-    score: 8000,
-    tags: ["Logo Design", "F&B"],
-    thumbnail: bakmiHaiyu1,
-    images: [bakmiHaiyu1, bakmiHaiyu2, bakmiHaiyu3]
+    id: "bakmi-haiyu", title: "Bakmi Haiyu", client: "Haiyu Café", category: "Branding",
+    description: "Logo design and GSM for Bakmi Haiyu restaurant",
+    overview: "Bakmi Haiyu adalah brand mie yang berlokasi di Bandung. Awalnya brand ini bernama Haiyu Café, kemudian mereka membuka lini brand baru bernama Bakmi Haiyu yang terletak di Jl. Sultan Agung No. 13, Bandung Wetan, Bandung. Dalam project ini saya mendesain logo baru Bakmi Haiyu beserta Graphic Standard Manual sebagai pedoman identitas visual brand.",
+    objective: "To design a memorable logo representing Bakmi Haiyu's quality.",
+    process: ["Restaurant concept understanding", "Typography exploration", "Symbol development", "Color palette", "GSM creation"],
+    result: "A distinctive logo and GSM for Bakmi Haiyu.", icon: Briefcase, score: 8000, tags: ["Logo Design", "F&B", "GSM"],
+    thumbnail: bakmiHaiyu1, images: [bakmiHaiyu1, bakmiHaiyu2, bakmiHaiyu3]
   },
   "pt-teman-berkah": {
-    id: "pt-teman-berkah",
-    title: "PT Teman Berkah Anugrah",
-    client: "Corporate Project",
-    category: "Branding",
+    id: "pt-teman-berkah", title: "PT Teman Berkah Anugrah", client: "Corporate Project", category: "Branding",
     description: "Graphic Standard Manual and Stationery Design",
-    overview: "Complete corporate identity project including logo design, stationery (letterhead, envelope), and graphic standard manual for PT Teman Berkah Anugrah.",
-    objective: "To establish a professional corporate identity that reflects unity, integrity, and professionalism.",
-    process: [
-      "Logo concept development (3 semi-circles symbolizing unity)",
-      "Stationery design (Kop Surat, Amplop)",
-      "Color code specification",
-      "Typography selection (Helvetica Neue Bold)",
-      "Graphic Standard Manual creation"
-    ],
-    result: "A complete corporate identity system that positions PT Teman Berkah Anugrah as a professional and trustworthy company.",
-    icon: Briefcase,
-    score: 9000,
-    tags: ["GSM", "Corporate Identity"],
-    thumbnail: ptTba1,
-    images: [ptTba1, ptTba2, ptTba3, ptTba4]
+    overview: "PT Teman Berkah Anugrah adalah perusahaan pertambangan. Dalam project ini, saya mendesain identitas visual lengkap termasuk logo perusahaan, stationery, dan Graphic Standard Manual. Desain dibuat profesional, kuat, dan merepresentasikan karakter industri pertambangan yang stabil dan terpercaya.",
+    objective: "To establish a professional corporate identity.",
+    process: ["Logo concept development", "Stationery design", "Color specification", "Typography selection", "GSM creation"],
+    result: "A complete corporate identity system.", icon: Briefcase, score: 9000, tags: ["GSM", "Corporate Identity"],
+    thumbnail: ptTba1, images: [ptTba1, ptTba2, ptTba3, ptTba4]
   },
   "ashoe-ui": {
-    id: "ashoe-ui",
-    title: "A-SHOE UI Design",
-    client: "UI/UX Project",
-    category: "Design",
+    id: "ashoe-ui", title: "A-SHOE UI Design", client: "UI/UX Project", category: "Design",
     description: "Mobile app UI design for smart shoe application",
     overview: "UI design for A-SHOE, a smart shoe companion app featuring step tracking, walking steadiness monitoring, and Bluetooth connectivity.",
-    objective: "To create an intuitive and visually appealing mobile app interface for smart shoe users.",
-    process: [
-      "User research and wireframing",
-      "UI design system creation",
-      "Screen design (Dashboard, Settings, Stats)",
-      "Interactive prototype",
-      "Final UI refinement"
-    ],
-    result: "A clean and modern mobile app UI that enhances the smart shoe user experience.",
-    icon: Monitor,
-    score: 8500,
-    tags: ["UI Design", "Mobile App"],
-    thumbnail: ashoeUi1,
-    images: [ashoeUi1, ashoeUi2]
+    objective: "To create an intuitive mobile app interface.",
+    process: ["User research", "UI design system", "Screen design", "Prototype", "Final refinement"],
+    result: "A clean mobile app UI.", icon: Monitor, score: 8500, tags: ["UI Design", "Mobile App"],
+    thumbnail: ashoeUi1, images: [ashoeUi1, ashoeUi2]
   },
   "gestalt-project": {
-    id: "gestalt-project",
-    title: "Gestalt Design",
-    client: "Campus Project",
-    category: "Design",
+    id: "gestalt-project", title: "Gestalt Design", client: "Campus Project - Final Exam", category: "Design",
     description: "Design exploration using Gestalt principles",
-    overview: "A design project exploring Gestalt principles including Proximity, Continuity, Similarity, Closure, Figure Ground, and more.",
-    objective: "To demonstrate understanding and application of Gestalt design principles in visual composition.",
-    process: [
-      "Study of Gestalt principles",
-      "Concept sketching",
-      "Typography-based design exploration",
-      "Composition refinement",
-      "Final presentation"
-    ],
-    result: "An educational design piece that effectively demonstrates various Gestalt principles.",
-    icon: Layout,
-    score: 7000,
-    tags: ["Design Theory", "Typography"],
-    thumbnail: gestalt1,
-    images: [gestalt1]
+    overview: "Project Gestalt adalah tugas Ujian Akhir Semester pada perkuliahan Desain. Gestalt dalam desain adalah prinsip persepsi visual yang menjelaskan bagaimana elemen-elemen disusun sehingga dipahami sebagai bentuk yang utuh. Pada project ini saya membuat karya berdasarkan beberapa prinsip Gestalt yaitu: Proximity, Continuity, Similarity, Closure, dan Figure–Ground. Setiap prinsip divisualisasikan dalam bentuk desain grafis yang berbeda.",
+    objective: "To demonstrate understanding of Gestalt design principles.",
+    process: ["Study of Gestalt principles", "Concept sketching", "Typography exploration", "Principle visualizations", "Final presentation"],
+    result: "An educational design piece demonstrating Gestalt principles.", icon: Layout, score: 7000, tags: ["Design Theory", "Typography"],
+    thumbnail: gestalt1, images: [gestalt1]
   }
 };
 
