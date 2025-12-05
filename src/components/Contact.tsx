@@ -46,7 +46,7 @@ const Contact = () => {
                   <Input
                     id="name"
                     type="text"
-                    placeholder="John Doe"
+                    placeholder="type here"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
@@ -61,7 +61,7 @@ const Contact = () => {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="example@gmail.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
@@ -103,7 +103,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Email Me</h3>
-                  <p className="text-sm text-muted-foreground">najwa.alayya@example.com</p>
+                  <p className="text-sm text-muted-foreground">naianajwaa@gmail.com</p>
                 </div>
               </div>
             </Card>
