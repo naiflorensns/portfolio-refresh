@@ -39,7 +39,7 @@ const Portfolio = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {projectsList.map((project, index) => {
             const Icon = project.icon;
             const isHovered = hoveredIndex === index;
@@ -48,12 +48,12 @@ const Portfolio = () => {
               <Link
                 key={project.id}
                 to={`/project/${project.id}`}
-                className="block"
+                className="block h-full"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <Card
-                  className="group relative overflow-hidden bg-card border-4 border-secondary hover:border-primary transition-all duration-300 animate-scale-in"
+                  className="group relative overflow-hidden bg-card border-4 border-secondary hover:border-primary transition-all duration-300 animate-scale-in h-full flex flex-col"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {/* Pac-Man hover effect */}
@@ -65,8 +65,8 @@ const Portfolio = () => {
                     <PacmanCharacter size={24} direction="right" />
                   </div>
 
-                  {/* Project Preview */}
-                  <div className="h-40 bg-muted flex items-center justify-center relative overflow-hidden">
+                  {/* Project Preview - Fixed aspect ratio */}
+                  <div className="aspect-[4/3] bg-muted relative overflow-hidden flex-shrink-0">
                     <img 
                       src={project.thumbnail} 
                       alt={project.title}
@@ -88,28 +88,33 @@ const Portfolio = () => {
                     </div>
                   </div>
                   
-                  {/* Project Info */}
-                  <div className="p-4 border-t-2 border-secondary/30">
-                    <p className="font-pixel text-[8px] text-secondary mb-2">
+                  {/* Project Info - Fixed height */}
+                  <div className="p-4 border-t-2 border-secondary/30 flex flex-col flex-grow">
+                    <p className="font-pixel text-[8px] text-secondary mb-2 truncate">
                       {project.client}
                     </p>
-                    <h3 className="font-pixel text-[10px] text-primary mb-2 group-hover:neon-text transition-all">
+                    <h3 className="font-pixel text-[10px] text-primary mb-2 group-hover:neon-text transition-all line-clamp-1">
                       {project.title}
                     </h3>
-                    <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
+                    <p className="text-xs text-muted-foreground mb-3 line-clamp-2 flex-grow">
                       {project.description}
                     </p>
                     
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
+                    {/* Tags - Fixed height container */}
+                    <div className="flex flex-wrap gap-1.5 h-[52px] overflow-hidden">
+                      {project.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-0.5 bg-muted border border-secondary/30 text-[10px] text-muted-foreground"
+                          className="px-2 py-0.5 bg-muted border border-secondary/30 text-[10px] text-muted-foreground h-fit"
                         >
                           {tag}
                         </span>
                       ))}
+                      {project.tags.length > 3 && (
+                        <span className="px-2 py-0.5 bg-muted border border-secondary/30 text-[10px] text-muted-foreground h-fit">
+                          +{project.tags.length - 3}
+                        </span>
+                      )}
                     </div>
                   </div>
 
