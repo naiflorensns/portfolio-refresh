@@ -27,6 +27,7 @@ import ptTba4 from "@/assets/projects/pt-tba-4.png";
 import ashoeUi1 from "@/assets/projects/ashoe-ui-1.png";
 import ashoeUi2 from "@/assets/projects/ashoe-ui-2.png";
 import gestalt1 from "@/assets/projects/gestalt-1.png";
+import orangeCup from "@/assets/projects/orange-cup.jpg";
 import transHotelLogo from "@/assets/projects/trans-hotel-logo.png";
 import transHotel1 from "@/assets/projects/trans-hotel-1.jpg";
 import transHotel2 from "@/assets/projects/trans-hotel-2.jpg";
@@ -82,14 +83,14 @@ export const projectsData: Record<string, Project> = {
     result: "Delivered a cohesive collection of product images.", icon: Camera, score: 8500, tags: ["Photography", "Product"],
     thumbnail: productPhoto1, images: [productPhoto1, productPhoto2]
   },
-  "bandung-illustration": {
-    id: "bandung-illustration", title: "Bandung Illustration", client: "Campus Project", category: "Design",
-    description: "City composition illustrating Bandung's atmosphere during the pandemic",
-    overview: "Gambar komposisi kota ini menampilkan suasana kota Bandung di masa kini. Menampilkan Museum Geologi, Stasiun Bosscha, Gedung Merdeka, dan ruko-ruko dengan suasana pandemi.",
-    objective: "To create a meaningful visual representation of Bandung.",
-    process: ["Research on landmarks", "Sketch development", "Digital illustration", "Color palette selection", "Final refinement"],
-    result: "A beautiful illustration that captures the essence of Bandung.", icon: Palette, score: 9200, tags: ["Illustration", "Design"],
-    thumbnail: bandung1, images: [bandung1, bandung2, bandung3, bandung4]
+  "campus-design-portfolio": {
+    id: "campus-design-portfolio", title: "Campus Design Portfolio", client: "Campus Project", category: "Design",
+    description: "Various design projects including 3D modeling, rebranding, poster design, and digital imaging",
+    overview: "Kumpulan karya desain selama perkuliahan yang mencakup berbagai teknik dan media. Project ini meliputi: pembuatan desain 3D, rebranding logo Lacoste, pembuatan poster untuk acara imajinasi seperti Musezoic (museum dinosaurus), interpretasi visual berupa merchandise dan apparel, pembuatan digital imaging seperti Orange Cup, serta ilustrasi komposisi kota Bandung yang menampilkan Museum Geologi, Stasiun Bosscha, Gedung Merdeka dengan suasana pandemi.",
+    objective: "Mengeksplorasi berbagai teknik desain dari 3D modeling, branding, poster design, merchandise design, hingga digital imaging untuk mengasah kemampuan kreatif dan teknis.",
+    process: ["3D modeling exploration", "Logo rebranding Lacoste", "Poster design Musezoic", "Merchandise interpretation", "Digital imaging Orange Cup", "City illustration Bandung"],
+    result: "Berbagai karya desain yang menunjukkan kemampuan di berbagai bidang visual design.", icon: Palette, score: 9200, tags: ["3D Design", "Rebranding", "Poster", "Digital Imaging", "Illustration"],
+    thumbnail: orangeCup, images: [orangeCup, bandung1, bandung2, bandung3, bandung4]
   },
   "tell-tails": {
     id: "tell-tails", title: "Tail n Tails", client: "Pro Train Petcamp", category: "Branding",
