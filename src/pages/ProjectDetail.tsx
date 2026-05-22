@@ -14,6 +14,7 @@ import { projectsData } from "@/data/projects";
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
   const project = id ? projectsData[id] : null;
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   if (!project) {
     return (
