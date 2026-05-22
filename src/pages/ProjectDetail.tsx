@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ArrowLeft, Play, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import MazeBackground from "@/components/MazeBackground";
@@ -11,6 +14,7 @@ import { projectsData } from "@/data/projects";
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
   const project = id ? projectsData[id] : null;
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   if (!project) {
     return (
@@ -91,8 +95,10 @@ const ProjectDetail = () => {
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {project.images.map((image, i) => (
-                    <div 
+                    <button
                       key={i}
+                      type="button"
+                      onClick={() => setLightboxIndex(i)}
                       className="aspect-square bg-muted border-2 border-secondary overflow-hidden group cursor-pointer hover:border-primary transition-colors"
                     >
                       <img 
@@ -100,10 +106,36 @@ const ProjectDetail = () => {
                         alt={`${project.title} - Image ${i + 1}`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
-                    </div>
+                    </button>
                   ))}
                 </div>
               </Card>
+
+              {/* Lightbox */}
+              <Dialog open={lightboxIndex !== null} onOpenChange={(open) => !open && setLightboxIndex(null)}>
+                <DialogContent className="max-w-5xl w-[95vw] bg-card border-4 border-primary p-6">
+                  <Carousel opts={{ startIndex: lightboxIndex ?? 0, loop: true }} className="w-full">
+                    <CarouselContent>
+                      {project.images.map((image, i) => (
+                        <CarouselItem key={i}>
+                          <div className="flex items-center justify-center bg-background border-2 border-secondary p-4">
+                            <img
+                              src={image}
+                              alt={`${project.title} - Image ${i + 1}`}
+                              className="max-h-[75vh] w-auto object-contain"
+                            />
+                          </div>
+                          <p className="text-center font-pixel text-[10px] text-secondary mt-3">
+                            {i + 1} / {project.images.length}
+                          </p>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="left-2 bg-card border-primary text-primary hover:bg-primary hover:text-primary-foreground" />
+                    <CarouselNext className="right-2 bg-card border-primary text-primary hover:bg-primary hover:text-primary-foreground" />
+                  </Carousel>
+                </DialogContent>
+              </Dialog>
 
               {/* Video Showcase */}
               <Card className="pixel-border bg-card p-6 animate-slide-in-left" style={{ animationDelay: "0.3s" }}>
