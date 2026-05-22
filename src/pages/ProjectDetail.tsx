@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ArrowLeft, Play, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import MazeBackground from "@/components/MazeBackground";
