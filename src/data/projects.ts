@@ -26,7 +26,13 @@ import ptTba3 from "@/assets/projects/pt-tba-3.png";
 import ptTba4 from "@/assets/projects/pt-tba-4.png";
 import ashoeUi1 from "@/assets/projects/ashoe-ui-1.png";
 import ashoeUi2 from "@/assets/projects/ashoe-ui-2.png";
-import gestalt1 from "@/assets/projects/gestalt-1.png";
+import gestaltSimilarity from "@/assets/projects/gestalt-similarity.jpg";
+import gestaltProximity from "@/assets/projects/gestalt-proximity.jpg";
+import gestaltClosure from "@/assets/projects/gestalt-closure.jpg";
+import gestaltContinuity from "@/assets/projects/gestalt-continuity.jpg";
+import gestaltFigureGround from "@/assets/projects/gestalt-figure-ground.jpg";
+import gestaltKey from "@/assets/projects/gestalt-key.jpg";
+import gestaltViper from "@/assets/projects/gestalt-viper.jpg";
 import orangeCup from "@/assets/projects/orange-cup.jpg";
 import transHotelLogo from "@/assets/projects/trans-hotel-logo.png";
 import transHotel1 from "@/assets/projects/trans-hotel-1.jpg";
@@ -204,19 +210,19 @@ export const projectsData: Record<string, Project> = {
   },
   "gestalt-project": {
     id: "gestalt-project",
-    title: "Gestalt Design",
-    client: "Campus Project - Final Exam",
+    title: "Gestalt Design — Key & Viper",
+    client: "Campus Project — Midterm Exam",
     category: "Design",
-    description: "Design exploration using Gestalt visual perception principles",
-    overview: "Project Gestalt is a Final Semester Exam assignment in a Design course. Gestalt in design refers to visual perception principles that explain how elements are arranged so they are understood as a unified whole. In this project, I created works based on several Gestalt principles: Proximity, Continuity, Similarity, Closure, and Figure–Ground. Each principle was visualized in a different graphic design form.",
-    objective: "To demonstrate comprehensive understanding of Gestalt design principles through visual application.",
-    process: ["Study of Gestalt principles", "Concept sketching", "Typography exploration", "Individual principle visualizations", "Final presentation"],
-    result: "An educational design piece successfully demonstrating mastery of Gestalt visual perception principles.",
+    description: "Visual exploration of Gestalt principles using a room key and green viper snake",
+    overview: "Project Gestalt is my Midterm Exam (UTS) assignment for the Visual Communication Design I course. For this project I chose a room key as the inanimate object and the green viper snake (Trimeresurus albolabris) as the animal, because the two share a striking visual correlation in silhouette, structure, and character. The long, slender shaft of a key echoes the elongated body of a viper, while the oval bow with its hollow opening mirrors the snake's prominent head. The repeating teeth along the key's shaft resemble the rhythmic pattern of the snake's scales, and the tapering tip recalls a viper's narrowing tail. In character, a viper coils around and locks its prey, just as a key locks and secures. From these two subjects I developed visual works based on five Gestalt principles — Proximity, Similarity, Closure, Continuity, and Figure–Ground — each translated into a distinct composition.",
+    objective: "To demonstrate Gestalt visual perception principles by combining a room key and a green viper snake into five cohesive visual compositions.",
+    process: ["Object & animal selection (key and green viper)", "Visual correlation and color palette study", "Reference gathering and form simplification", "50 exploratory sketches", "Final compositions for Proximity, Similarity, Closure, Continuity, and Figure–Ground"],
+    result: "Five final compositions that successfully translate the Gestalt principles through the visual dialogue between a room key and a green viper snake.",
     icon: Layout,
     score: 7000,
-    tags: ["Design Theory", "Typography", "Visual Perception"],
-    thumbnail: gestalt1,
-    images: [gestalt1]
+    tags: ["Gestalt", "Visual Perception", "Illustration", "Typography"],
+    thumbnail: gestaltSimilarity,
+    images: [gestaltSimilarity, gestaltProximity, gestaltClosure, gestaltContinuity, gestaltFigureGround, gestaltKey, gestaltViper]
   }
 };
 
